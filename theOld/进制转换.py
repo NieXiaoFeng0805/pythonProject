@@ -1,0 +1,6 @@
+#print(int("100111",2))
+x=input('二进制字符：')
+print('二进制转十进制：',int(x,2))
+E=int(x)
+print('二进制转八进制：',oct(E))
+print('二进制转十六进制：',hex(E))
