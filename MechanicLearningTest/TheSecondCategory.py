@@ -16,13 +16,13 @@ warnings.filterwarnings("ignore")  # 取消一般警告显示
 iris = load_iris()  # 引用Iris数据集
 # data为训练所需的数据集，target为数据集对应的分类标签
 X, y = iris.data, iris.target
-# print(X)
-# print(y)
+print(X)
+print(y)
 # 因为鸢尾花具有三个类别，4个特征，此处仅使用其中两个特征，并且移除一个类别(类别0)
 X = X[y != 0, 2:]  # 取标签值不为0且采用第三和第四个特征
 y = y[y != 0]  # 标签值采用不为零的类别
-# print("x=", X)
-# print("y=", y)
+print("x=", X)
+print("y=", y)
 
 # 此时，y的标签为1与2,这里将其改成0与1，(仅仅足为了习惯而已)
 y[y == 1] = 0
@@ -34,14 +34,15 @@ y[y == 2] = 1
 
 
 # 但这个为什么会影响预测结果呢？明明数据集是不变的测试集比例和训练集比例也是不变的，random_state是指分割方法随机吗？
+# 还是说数据集固定，但在分割方法上随机选取75%的样本作为训练样本，剩余的作为测试集？
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=40)
 
 lr = LogisticRegression()
 lr.fit(X_train, y_train)  # 进行拟合
 y_hat = lr.predict(X_test)  # 用测试集进行预测
 # print(y_hat)
-# print("权重: ", lr.coef_)
-# print("偏置: ", lr.intercept_)
+# print("权重: ", lr.coef_)  #斜率？
+# print("偏置: ", lr.intercept_)  #截距？
 # print("真实值:", y_test)
 # print("预测值:", y_hat)
 

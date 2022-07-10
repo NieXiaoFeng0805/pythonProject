@@ -18,8 +18,9 @@ class Solution(object):
                 return False
             # 中序遍历
             Traversal(root.left)
-            res.append(root.val)
+
             Traversal(root.right)
+            res.append(root.val)
             return res
         resList = Traversal(root)
         # ##
