@@ -50,12 +50,6 @@ class BinaryTree:
 
     # def levelOrder(self): # 层次遍历
 
-# class BinaryTreeofList:
-#     def __init__(self, left=None, right=None, value=0):
-#         self.left = None
-#         self.right = None
-#         self.value = value
-
 
 if __name__ == '__main__':
     root = BinaryTree('root')
