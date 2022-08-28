@@ -30,31 +30,34 @@ class Solution(object):
 
         # 优化
         n = len(nums)
-        if not nums or n < 3:
+        if not nums or n < 3:  # 小于三个元素直接返回
             return []
-        nums.sort()
+        nums.sort()  # 进行排序
         res = []
         for i in range(n):
             if nums[i] > 0:
                 return res
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
+            # 从两端往中间遍历
             L = i + 1
             R = n - 1
             while L < R:
-                if nums[i] + nums[L] + nums[R] == 0:
+                if nums[i] + nums[L] + nums[R] == 0:  # 三者相加刚好等于0
                     res.append([nums[i], nums[L], nums[R]])
+                    # 防止重复
                     while L < R and nums[L] == nums[L + 1]:
                         L += 1
                     while L < R and nums[R] == nums[R - 1]:
                         R = R - 1
+
                     L = L + 1
                     R = R - 1
-                elif nums[i] + nums[L] + nums[R] > 0:
+                elif nums[i] + nums[L] + nums[R] > 0:  # 相加大于0，右边大了，右指针往左移动
                     R = R - 1
-                else:
+                else:  # 相加小于0，左指针往右移动
                     L = L + 1
-        print('ssss')
+        print(res)
         return res
 
 
