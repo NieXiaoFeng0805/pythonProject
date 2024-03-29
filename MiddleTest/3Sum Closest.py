@@ -2,7 +2,7 @@
 # @Author: 丨枫
 # @File 3Sum Closest.py
 class Solution:
-    def threeSumClosest(self, nums: list[int], target: int) -> int:
+    def threeSumClosest(self, nums, target: int) -> int:
         nums.sort()
         n = len(nums)
         minClose = 10 ** 7
